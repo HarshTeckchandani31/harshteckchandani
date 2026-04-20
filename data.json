@@ -26,5 +26,5 @@
         {"degree": "M.Tech in CSE", "inst": "Parul University", "year": "2020 - 2022", "cgpa": "8.32"},
         {"degree": "B.Tech in CSE", "inst": "Parul University", "year": "2016 - 2020", "cgpa": "7.53"}
     ],
-    "skills": ["Python", "Machine Learning", "Flask", "Cybersecurity", "Django"]
+    "skills": ["Python", "Flask","Django", "AI" ,"Machine Learning", "Deep Learning" , "Cybersecurity" ]
 }
