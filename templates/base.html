@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Teckchandani | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+    <style>
+        html { scroll-behavior: smooth; }
+        /* Offset for fixed nav */
+        section { scroll-margin-top: 80px; }
+
+        /* Custom Cursor Styles */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #b74b4d;
+  box-shadow: 0 0 10px #b74b4d;
+}
+.cursor-outline {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #b74b4d;
+}
+.cursor-dot, .cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none; /* Taaki cursor click mein rukawat na bane */
+  transition: transform 0.15s ease-out, width 0.3s, height 0.3s;
+}
+
+/* Hover effect for buttons/links */
+.cursor-hover {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(183, 75, 77, 0.2);
+    border: none;
+}
+    </style>
+</head>
+<body class="bg-black text-white font-sans overflow-x-hidden">
+<div class="cursor-dot" data-cursor-dot></div>
+<div class="cursor-outline" data-cursor-outline></div>
+    <div id="preloader" class="fixed inset-0 z-[10000] bg-black flex flex-col items-center justify-center transition-opacity duration-700">
+        <div class="w-12 h-12 border-4 border-[#b74b4d] border-t-transparent rounded-full animate-spin"></div>
+        <p class="mt-4 text-[#b74b4d] font-mono tracking-widest animate-pulse">LOADING...</p>
+    </div>
+
+    <div id="particles-js" class="fixed inset-0 -z-10"></div>
+
+    <nav class="fixed top-0 left-0 w-full flex justify-between items-center p-6 border-b border-gray-800 bg-black/80 backdrop-blur-md z-50">
+        <a href="/" class="text-2xl font-bold text-[#b74b4d]">Harsh.T</a>
+        <div class="hidden md:flex space-x-6 text-lg">
+            <a href="#experience" class="hover:text-[#b74b4d] transition">Experience</a>
+            <a href="#projects" class="hover:text-[#b74b4d] transition">Projects</a>
+            <a href="#education" class="hover:text-[#b74b4d] transition">Education</a>
+            <a href="#skills" class="hover:text-[#b74b4d] transition">Skills</a>
+            <a href="#contact" class="hover:text-[#b74b4d] transition">Contact</a>
+        </div>
+
+    </nav>
+
+
+
+    <div class="pt-20"> {% block content %}{% endblock %}
+    </div>
+
+    <footer class="p-10 text-center border-t border-gray-800 mt-20">
+        <p class="text-gray-500">© 2026 Harsh Teckchandani. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="flex items-center justify-center min-h-[80vh] px-6">
+    <div class="w-full max-w-md bg-[#111] p-10 rounded-3xl border border-gray-800 shadow-2xl text-center">
+        <h1 class="text-3xl font-bold mb-2 text-[#b74b4d]">Secure <span class="text-white">Access</span></h1>
+        <p class="text-gray-500 mb-8">Please enter admin credentials</p>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="bg-red-900/30 text-red-500 p-3 rounded-lg mb-6 border border-red-800">{{ messages[0] }}</div>
+          {% endif %}
+        {% endwith %}
+
+        <form action="/login" method="POST" class="space-y-6">
+            <div class="text-left">
+                <label class="text-sm text-gray-400 ml-1">Username</label>
+                <input type="text" name="username" required class="w-full p-4 mt-1 bg-black border border-gray-800 rounded-xl outline-none text-white focus:border-[#b74b4d] transition-all">
+            </div>
+            <div class="text-left">
+                <label class="text-sm text-gray-400 ml-1">Password</label>
+                <input type="password" name="password" required class="w-full p-4 mt-1 bg-black border border-gray-800 rounded-xl outline-none text-white focus:border-[#b74b4d] transition-all">
+            </div>
+            <button type="submit" class="w-full bg-[#b74b4d] text-white py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-black hover:scale-[1.02] transition-all duration-300">
+                Login to Dashboard
+            </button>
+        </form>
+    </div>
+</section>
+{% endblock %}

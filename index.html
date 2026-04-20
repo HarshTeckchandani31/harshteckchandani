@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="home" class="flex flex-col md:flex-row items-center justify-center min-h-[90vh] px-6 py-20 gap-16 max-w-6xl mx-auto">
+    <div class="w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-[#b74b4d] shadow-[0_0_25px_#b74b4d] shrink-0 transition-transform duration-300 hover:scale-105">
+        <img src="{{ url_for('static', filename='img/photo.jpg') }}" class="w-full h-full object-cover">
+    </div>
+
+    <div class="max-w-3xl text-center md:text-left flex-grow">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-2 leading-tight">
+            Hi, It's <span class="text-[#b74b4d]">Harsh</span>
+        </h1>
+        <div class="text-2xl md:text-4xl font-semibold mb-6 text-gray-400 min-h-[50px]">
+            I Am <span class="typewriter-text text-[#b74b4d]"></span>
+        </div>
+        <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+            Software Developer with a Master's in CSE, specializing in Python, Machine Learning, and Deep Learning.
+        </p>
+        <div class="flex justify-center md:justify-start gap-6 mb-10">
+            <a href="https://github.com/HarshTeckchandani31" target="_blank" class="text-4xl hover:text-[#b74b4d] transition-transform hover:-translate-y-1"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/harsh-t-a524471a2/" target="_blank" class="text-4xl hover:text-[#b74b4d] transition-transform hover:-translate-y-1"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <a href="#contact" class="magnetic-btn inline-block bg-[#b74b4d] text-black px-10 py-4 rounded-full text-lg font-bold transition-all shadow-[0_0_15px_#b74b4d]">
+            Hire Me
+        </a>
+    </div>
+</section>
+
+<div class="max-w-6xl mx-auto px-6 mb-20">
+    <div class="flex flex-wrap justify-center gap-10 border-y border-gray-800 py-10 bg-black/40 backdrop-blur-sm rounded-xl">
+        <div class="text-center min-w-[120px]">
+            <h3 class="text-4xl font-bold text-[#b74b4d]">5+</h3>
+            <p class="text-gray-500 text-sm uppercase tracking-widest mt-2">Projects</p>
+        </div>
+        <div class="text-center min-w-[120px]">
+            <h3 class="text-4xl font-bold text-[#b74b4d]">2+</h3>
+            <p class="text-gray-500 text-sm uppercase tracking-widest mt-2">Research Papers</p>
+        </div>
+        <div class="text-center min-w-[120px] border-x border-gray-800 px-10">
+            <h3 class="text-4xl font-bold text-[#b74b4d]">2+</h3>
+            <p class="text-gray-500 text-sm uppercase tracking-widest mt-2">Years Exp</p>
+        </div>
+        <div class="text-center min-w-[120px]">
+            <h3 class="text-4xl font-bold text-[#b74b4d]">10+</h3>
+            <p class="text-gray-500 text-sm uppercase tracking-widest mt-2">Certifications</p>
+        </div>
+    </div>
+</div>
+
+<section id="experience" class="py-20 px-6 max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold mb-16 text-center">Work <span class="text-[#b74b4d]">Experience</span></h2>
+    <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 md:before:mx-auto before:h-full before:w-0.5 before:bg-gray-800">
+        {% for exp in experiences %}
+        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+            <div class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-800 bg-black text-[#b74b4d] z-10 md:absolute md:left-1/2 md:-translate-x-1/2">
+                <i class="fas fa-briefcase text-sm"></i>
+            </div>
+            <div class="w-[calc(100%-3rem)] md:w-[45%] bg-[#111] p-6 rounded-xl border border-gray-800 hover:border-[#b74b4d] transition-all">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-1">
+                    <div class="font-bold text-[#b74b4d]">{{ exp.role }}</div>
+                    <time class="font-mono text-xs text-gray-500">{{ exp.year }}</time>
+                </div>
+                <div class="text-gray-300 font-semibold">{{ exp.company }}</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="projects" class="py-20 px-6 max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold mb-12 text-center">My <span class="text-[#b74b4d]">Projects</span></h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {% for project in projects %}
+        <div class="bg-[#1b1b1b] rounded-2xl overflow-hidden border border-gray-800 hover:border-[#b74b4d] transition-all group">
+            <div class="h-56 overflow-hidden">
+                <img src="{{ url_for('static', filename='img/' + project.img) }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <div class="p-8">
+                <h3 class="text-2xl font-bold mb-3 text-[#b74b4d]">{{ project.title }}</h3>
+                <p class="text-gray-400 mb-6">{{ project.desc }}</p>
+                <a href="{{ project.link }}" target="_blank" class="inline-block border border-[#b74b4d] text-[#b74b4d] px-6 py-2 rounded-lg hover:bg-[#b74b4d] hover:text-black transition-all font-bold">View Project →</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="education" class="py-20 bg-[#050505]">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold mb-12">Academic <span class="text-[#b74b4d]">Background</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+            {% for edu in education %}
+            <div class="p-8 bg-[#111] border-l-4 border-[#b74b4d] rounded-r-xl transition-all hover:bg-[#161616]">
+                <h3 class="text-2xl font-bold text-white">{{ edu.degree }}</h3>
+                <p class="text-[#b74b4d] font-semibold mt-1">{{ edu.inst }}</p>
+                <div class="flex justify-between items-center mt-4">
+                    <span class="text-gray-500 font-mono">{{ edu.year }}</span>
+                    <span class="bg-gray-800 px-3 py-1 rounded text-sm font-bold text-[#b74b4d]">CGPA: {{ edu.cgpa }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="py-20 px-6 max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-12">Expert <span class="text-[#b74b4d]">Skills</span></h2>
+    <div class="flex flex-wrap justify-center gap-6">
+        {% for skill in skills %}
+        <div class="px-8 py-4 bg-[#111] border border-gray-800 text-white rounded-2xl text-lg font-bold
+                    hover:border-[#b74b4d] hover:text-[#b74b4d] hover:shadow-[0_0_20px_rgba(183,75,77,0.3)]
+                    transition-all duration-300 cursor-default">
+            {{ skill }}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!--<section class="py-10 px-6">-->
+<!--    <div class="max-w-4xl mx-auto bg-[#111] p-8 rounded-3xl border border-gray-800 shadow-xl">-->
+<!--        <h3 class="text-center mb-6 font-mono text-gray-400 uppercase tracking-widest text-sm">Coding Consistency</h3>-->
+<!--        <div class="flex justify-center overflow-x-auto">-->
+<!--            <img src="https://ghchart.rshah.org/b74b4d/HarshTeckchandani31"-->
+<!--                 alt="Harsh's Github Chart"-->
+<!--                 class="opacity-80 hover:opacity-100 transition-opacity min-w-[600px] md:min-w-full" />-->
+<!--        </div>-->
+<!--        <p class="text-center text-gray-600 text-xs mt-4 italic">Live GitHub Contribution Graph</p>-->
+<!--    </div>-->
+<!--</section>-->
+
+<section id="contact" class="py-20 bg-[#050505] px-6">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-12">Get In <span class="text-[#b74b4d]">Touch</span></h2>
+        <form id="contact-form" action="/send_message" method="POST" class="grid grid-cols-1 gap-6 text-left">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <input type="text" name="name" placeholder="Full Name" required class="p-4 bg-[#111] border border-gray-800 rounded-lg focus:border-[#b74b4d] outline-none text-white transition">
+                <input type="email" name="email" placeholder="Email Address" required class="p-4 bg-[#111] border border-gray-800 rounded-lg focus:border-[#b74b4d] outline-none text-white transition">
+            </div>
+            <textarea name="message" rows="5" placeholder="Your Message" required class="p-4 bg-[#111] border border-gray-800 rounded-lg focus:border-[#b74b4d] outline-none text-white transition"></textarea>
+            <button type="submit" class="bg-[#b74b4d] text-black font-bold py-4 rounded-lg hover:bg-white transition-all">Send Message</button>
+            <p id="form-message" class="text-[#b74b4d] mt-2"></p>
+        </form>
+    </div>
+</section>
+{% endblock %}

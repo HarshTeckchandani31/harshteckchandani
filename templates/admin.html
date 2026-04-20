@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="max-w-6xl mx-auto py-20 px-6 min-h-screen text-white">
+    <div class="flex justify-between items-center mb-10">
+        <h1 class="text-4xl font-bold text-[#b74b4d]">Admin Panel</h1>
+        <a href="/logout" class="bg-red-600 px-4 py-2 rounded font-bold">Logout</a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
+        <div class="bg-[#111] p-8 rounded-2xl border border-gray-800">
+            <h2 class="text-2xl font-bold mb-6 text-[#b74b4d]">Add Project</h2>
+            <form action="/admin/add-project" method="POST" enctype="multipart/form-data" class="space-y-4">
+                <input type="text" name="title" placeholder="Project Title" required class="w-full p-3 bg-black border border-gray-800 rounded">
+                <textarea name="desc" placeholder="Description" required class="w-full p-3 bg-black border border-gray-800 rounded"></textarea>
+                <input type="file" name="file" class="text-sm">
+                <input type="text" name="link" placeholder="GitHub Link" class="w-full p-3 bg-black border border-gray-800 rounded">
+                <button type="submit" class="w-full bg-[#b74b4d] py-3 rounded font-bold">Add Project</button>
+            </form>
+        </div>
+
+        <div class="bg-[#111] p-8 rounded-2xl border border-gray-800">
+            <h2 class="text-2xl font-bold mb-6 text-[#b74b4d]">Add Experience</h2>
+            <form action="/admin/add-exp" method="POST" class="space-y-4">
+                <input type="text" name="role" placeholder="Role" required class="w-full p-3 bg-black border border-gray-800 rounded">
+                <input type="text" name="company" placeholder="Company" required class="w-full p-3 bg-black border border-gray-800 rounded">
+                <input type="text" name="year" placeholder="Year" required class="w-full p-3 bg-black border border-gray-800 rounded">
+                <button type="submit" class="w-full bg-[#b74b4d] py-3 rounded font-bold">Add Experience</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div>
+            <h3 class="text-xl font-bold mb-4">Manage Projects</h3>
+            {% for p in projects %}
+            <div class="flex justify-between p-3 bg-[#111] mb-2 border border-gray-800 rounded">
+                <span>{{ p.title }}</span>
+                <a href="/admin/delete-project/{{ p.id }}" class="text-red-500">Delete</a>
+            </div>
+            {% endfor %}
+        </div>
+        <div>
+            <h3 class="text-xl font-bold mb-4">Manage Experience</h3>
+            {% for e in experiences %}
+            <div class="flex justify-between p-3 bg-[#111] mb-2 border border-gray-800 rounded">
+                <span>{{ e.role }} at {{ e.company }}</span>
+                <a href="/admin/delete-exp/{{ e.id }}" class="text-red-500">Delete</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

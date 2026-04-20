@@ -1,0 +1,30 @@
+{
+    "projects": [
+        {
+            "title": "Emotion-based Music Player",
+            "desc": "Uses CNN and OpenCV",
+            "img": "emp.webp",
+            "link": "https://github.com/your-link"
+        },
+        {
+            "title": "Network Vulnerability Scanner",
+            "desc": "Built with Python and Nmap",
+            "img": "nvs.webp",
+            "link": "https://github.com/your-link"
+        }
+    ],
+    "experiences": [
+        {"role": "Assistant Professor - CSE", "company": "GSFC University", "year": "2026 - Till Present"},
+        {"role": "Teaching/Program Assistant", "company": "Gati Shakti Vishwavidyalaya", "year": "2025"},
+        {"role": "Cyber Security Intern", "company": "The Red Users", "year": "2024"},
+        {"role": "Software Developer Intern", "company": "JPMorganChase", "year": "2024"},
+        {"role": "Kanan International Vadodara", "company": "IELTS Trainer", "year": "2024"},
+        {"role": "Python Software Developer", "company": "Shri Drashti Infotech LLP", "year": "2023"},
+        {"role": "Assistant Professor - Computer Science and Engineering", "company": "Parul University", "year": "2020"}
+    ],
+    "education": [
+        {"degree": "M.Tech in CSE", "inst": "Parul University", "year": "2020 - 2022", "cgpa": "8.32"},
+        {"degree": "B.Tech in CSE", "inst": "Parul University", "year": "2016 - 2020", "cgpa": "7.53"}
+    ],
+    "skills": ["Python", "Machine Learning", "Flask", "Cybersecurity", "Django"]
+}
